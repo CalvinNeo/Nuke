@@ -38,6 +38,9 @@ TEST_ROOT = test
 threadpool_test: $(BIN_ROOT)
 	$(CXX) $(CFLAGS) $(CFLAGS_COV_LNK) -o $(BIN_ROOT)/threadpool_test $(TEST_ROOT)/thread_pool.cpp -L/usr/lib/ -I$(SRC_ROOT) -lpthread
 
+preproc_test: $(BIN_ROOT)
+	$(CXX) -E -C $(TEST_ROOT)/preproc.cpp > $(BIN_ROOT)/preproc.expand.cpp
+
 $(OBJ_ROOT)/%.o: $(SRC_ROOT)/%.cpp $(OBJ_ROOT)
 	$(CXX) -c $(CFLAGS) $(CFLAGS_COV) $< -o $@
 
